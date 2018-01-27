@@ -15,8 +15,8 @@ var UserSchema = Schema ({
 	password: String,
 	role: String,
 	image: String,
-	lat:Number,
-	lng:Number
+	lat: Number,
+	lng: Number
 });
 
 //exportar el fichero
