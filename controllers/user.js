@@ -25,6 +25,8 @@ function saveUser(req,res){
 	user.email = params.email;
 	user.role = 'ROLE_ADMIN';
 	user.image = 'null';
+	user.lag = 'null',
+	user.lng = 'null'
 
 
 	if (params.password) {
@@ -35,22 +37,22 @@ function saveUser(req,res){
 				//guadar el usuario
 				user.save((err,userStored) => {
 					if(err){
-						res.status(500).send({message:'Error al guardar el usuario'});		
+						res.status(500).send({message:'Error al guardar el usuario'});
 					}else{
 						if(!userStored){
-						res.status(404).send({message:'no se ha registrado el usuario'});			
+						res.status(404).send({message:'no se ha registrado el usuario'});
 						}else{
-							res.status(200).send({user:userStored});		
+							res.status(200).send({user:userStored});
 						}
 					}
 				});
 			}else{
-				res.status(200).send({message:'Introduce todos los campos5'});		
+				res.status(200).send({message:'Introduce todos los campos5'});
 			}
 		});
 	}else {
 		res.status(200).send({message:'Introduce la contraseña'});
-	}		
+	}
 
 }
 
@@ -150,7 +152,7 @@ function uploadImage(req,res){
 			res.status(200).send({message: 'extensiopn del archivo no valida...'});
 		}
 
-		
+
 	}else{
 		res.status(200).send({message: 'no ha subido ninguna imagen'});
 	}
