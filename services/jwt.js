@@ -13,7 +13,7 @@ exports.createToken = function(user){
 		role: user.role,
 		image: user.image,
 		lat:user.lat,
-		lng:user.lng,
+		lng:user.lng
 		iat: moment().unix(),
 		exp: moment().add(30,'days').unix
 	};
