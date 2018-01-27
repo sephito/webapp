@@ -25,8 +25,8 @@ function saveUser(req,res){
 	user.email = params.email;
 	user.role = 'ROLE_ADMIN';
 	user.image = 'null';
-	user.lat = '0';
-	user.lng = '0';
+	user.lat = 0;
+	user.lng = 0;
 
 
 	if (params.password) {
