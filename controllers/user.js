@@ -158,7 +158,25 @@ function uploadImage(req,res){
 	}
 }
 
+function getUsers(req,res){
+		//Sacar todos los songs de la bbdd
+		var find = Song.find({});
 
+
+	find.populate({
+		path: 'user'
+	}).exec((err,users) =>{
+		if(err){
+			res.status(500).send({message: 'Error en la petición'});
+		}else{
+			if(!users){
+				res.status(404).send({message: 'No hay usuarios'});
+			}else{
+				res.status(200).send({users});
+			}
+		}
+	});
+}
 //exportar modulo para poderlo usar.
 module.exports = {
 	pruebas,
@@ -166,5 +184,6 @@ module.exports = {
 	loginUser,
 	updateUser,
 	uploadImage,
-	getImageFile
+	getImageFile,
+	getUsers
 };
