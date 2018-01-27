@@ -12,6 +12,8 @@ exports.createToken = function(user){
 		email: user.email,
 		role: user.role,
 		image: user.image,
+		lat:user.lat,
+		lng:user.lng,
 		iat: moment().unix(),
 		exp: moment().add(30,'days').unix
 	};
