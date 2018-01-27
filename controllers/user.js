@@ -160,7 +160,7 @@ function uploadImage(req,res){
 
 function getUsers(req,res){
 		//Sacar todos los songs de la bbdd
-		var find = Song.find({});
+		var find = Users.find({});
 
 
 	find.populate({
